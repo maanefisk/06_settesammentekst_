@@ -5,8 +5,9 @@
 <body>
 
 <h2>Dynamisk HTML Bygging</h2>
+<input id="border-radius" type="range" min="0" max="300" step="10" oninput="showDiv()" />
 
-<input id="sizeslider" type="range" min="100" max="500" step="10" oninput="showdiv()"/>
+<input id="sizeslider" type="range" min="300" max="500" step="10" oninput="showdiv()"/>
 <br/>
 <input id="textinput" type="text" oninput="showdiv()" value="Skriv her!"/>
 
@@ -18,7 +19,6 @@
 <br/>
 <div id="resultat">Her</div>
 <div id="resultathtml" style="font-family: Arial, Helvetica, sans-serif;">Her</div>
-<input id="borderslider" type="range" min="0" max="300" step="10" oninput="showDiv()" />
 
 <script>
 var resultatdiv = document.getElementById('resultat');
@@ -26,11 +26,14 @@ var resultathtmldiv = document.getElementById('resultathtml');
 var sizeslider = document.getElementById('sizeslider');
 var textinput = document.getElementById('textinput');
 var colorchooser = document.getElementById('colorchooser');
-var borderslider = document.getElementById('borderslider');
+var borderradius = document.getElementById('border-radius');
 
 showdiv();
 
 function showdiv() {
+
+    var borderradius = borderslider.value; 
+
     resultatdiv.innerHTML = '<div style="'
                 + 'background-color: ' + colorchooser.value + ';'
                 + 'width: ' + sizeslider.value + 'px;'
