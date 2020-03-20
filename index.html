@@ -5,17 +5,28 @@
 <body>
 
 <h2>Dynamisk HTML Bygging</h2>
-<input id="border-radius" type="range" min="0" max="300" step="10" oninput="showDiv()" />
+<input id="border-radius" type="range" min="10" max="150" step="10" oninput="showDiv()" />
 
 <input id="sizeslider" type="range" min="300" max="500" step="10" oninput="showdiv()"/>
 <br/>
-<input id="textinput" type="text" oninput="showdiv()" value="Skriv her!"/>
+Bordercolor
+<select id="border" onchange="showdiv()">
+<option> </option>
+<option value="black">Black</option>
+<option value="gray">Gray</option>
+</select>
 
+<br/>
+Fill Color
 <select id="colorchooser" onchange="showdiv()">
 <option value="pink">Pink</option>
 <option value="lemonchiffon">Yellow</option>
 <option value="skyblue">Skyblue</option>
 </select>
+<br/>
+<input id="textinput" type="text" oninput="showdiv()" value="Skriv her!"/>
+
+
 <br/>
 <div id="resultat">Her</div>
 <div id="resultathtml" style="font-family: Arial, Helvetica, sans-serif;">Her</div>
@@ -26,15 +37,16 @@ var resultathtmldiv = document.getElementById('resultathtml');
 var sizeslider = document.getElementById('sizeslider');
 var textinput = document.getElementById('textinput');
 var colorchooser = document.getElementById('colorchooser');
-var borderradius = document.getElementById('border-radius');
+var borderslider = document.getElementById('border-radius');
 
 showdiv();
 
 function showdiv() {
 
-    var borderradius = borderslider.value; 
+    
 
     resultatdiv.innerHTML = '<div style="'
+    
                 + 'background-color: ' + colorchooser.value + ';'
                 + 'width: ' + sizeslider.value + 'px;'
                 + 'height: ' + sizeslider.value + 'px;'
