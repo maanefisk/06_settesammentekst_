@@ -10,10 +10,10 @@
 <input id="sizeslider" type="range" min="300" max="500" step="10" oninput="showdiv()"/>
 <br/>
 Bordercolor
-<select class="solid" id="bordercolor" onchange="showdiv()">
-<option value="noborder"> </option>
-<option class="solid" value="black">Black</option>
-<option class="solid" value="gray">Gray</option>
+<select id="bordercolor" onchange="showdiv()">
+<option value="none"> </option>
+<option value="black solid 2px">Black</option>
+<option value="gray dotted 3px">Gray</option>
 </select>
 
 <br/>
@@ -52,7 +52,7 @@ function showdiv() {
                 + 'width: ' + sizeslider.value + 'px;'
                 + 'height: ' + sizeslider.value + 'px;'
                 + 'border-radius: ' + borderslider.value + 'px;'
-                + 'border-color: ' + bordercolor.value 
+                + 'border: ' + bordercolor.value 
                 + '">' +
                 textinput.value + '</div>';
             resultathtmldiv.innerText = resultatdiv.innerHTML;
